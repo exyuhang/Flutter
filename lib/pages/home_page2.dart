@@ -61,7 +61,7 @@ class _HomePage2State extends State<HomePage2> {
                 flexibleSpace: new FlexibleSpaceBar(
                   centerTitle: true,
                   title: Text(title),
-                  background: new Image.asset("images/hang.jpg",fit: BoxFit.cover,),
+                  background: new Image.network("images/hang.jpg",fit: BoxFit.cover,),
                 ),
               )
             ];
@@ -81,8 +81,14 @@ class _HomePage2State extends State<HomePage2> {
   loadData() async {
 
     var httpClient = new HttpClient();
+    http://api.douban.com/v2/movie/in_theaters?apikey=0df993c66c0c636e29ecbb5344252a4a&start=0&count=10
+    Map<String, String> map = {"apikey":"0df993c66c0c636e29ecbb5344252a4a",
+      "start":"0",
+      "count":"10",
+    };
     var uri = new Uri.https(
-        'api.douban.com', '/v2/movie/in_theaters', null);
+        'api.douban.com', '/v2/movie/in_theaters', map);
+    print("接口地址______"+uri.toString());
     var request = await httpClient.getUrl(uri);
     var response = await request.close();
     var responseBody = await response.transform(Utf8Decoder()).join();
@@ -92,15 +98,17 @@ class _HomePage2State extends State<HomePage2> {
 
     var result = json.decode(responseBody);
 
-    setState(() {
+    if(result != null){
+      setState(() {
 
-      title = result['title'];
+        title = result['title'];
 
-      print('title: $title');
+        print('title: $title');
 
-      subjects = result['subjects'];
+        subjects = result['subjects'];
 
-    });
+      });
+    }
 
   }
 
@@ -272,7 +280,7 @@ class _HomePage2State extends State<HomePage2> {
 
   getBody() {
 
-    if (subjects.length != 0) {
+    if (subjects != null && subjects.length != 0) {
 
       return ListView.builder(
 
