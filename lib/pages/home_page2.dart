@@ -61,7 +61,7 @@ class _HomePage2State extends State<HomePage2> {
                 flexibleSpace: new FlexibleSpaceBar(
                   centerTitle: true,
                   title: Text(title),
-                  background: new Image.network("images/hang.jpg",fit: BoxFit.cover,),
+                  background: new Image.asset("images/2.png",fit: BoxFit.cover,),
                 ),
               )
             ];

@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget{
     // TODO: implement build
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Google翻译（宇航制作）",
+      title: "Google翻译",
       theme: new ThemeData(
         primaryColor: Colors.blue[600],
         primarySwatch: Colors.blue,

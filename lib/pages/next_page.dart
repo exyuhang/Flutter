@@ -3,6 +3,7 @@ import '../drawer/drawer_page.dart';
 import 'package:flutter/cupertino.dart';
 import '../pages/home_page1.dart';
 import '../pages/home_page2.dart';
+import '../pages/home_page3.dart';
 
 
 
@@ -19,6 +20,7 @@ class _NextPageState extends State<NextPage> {
     List<BottomNavigationBarItem> listBottomNavigationBarItem = new List();
     listBottomNavigationBarItem.add(new BottomNavigationBarItem(icon: new Icon(Icons.translate, color: getTabStyle(0).color,),title: new Text("翻译",style: getTabStyle(0),)));
     listBottomNavigationBarItem.add(new BottomNavigationBarItem(icon: new Icon(Icons.movie,color: getTabStyle(1).color,),title: new Text("电影",style: getTabStyle(1),)));
+    listBottomNavigationBarItem.add(new BottomNavigationBarItem(icon: new Icon(Icons.shop, color: getTabStyle(2).color,), title: Text("购物", style: getTabStyle(2),)));
     return listBottomNavigationBarItem;
   }
 
@@ -36,6 +38,7 @@ class _NextPageState extends State<NextPage> {
       children: <Widget>[
         new HomePage1(),
         new HomePage2(),
+        new HomePage3()
       ],
       index: tabIndex,
     );
@@ -47,7 +50,7 @@ class _NextPageState extends State<NextPage> {
     return new Container(
       child: new Scaffold(
         appBar: new AppBar(
-          title: new Text("Google翻译（宇航制作）"),
+          title: new Text("Google翻译"),
           elevation: 0.0,
         ),
         body: _indexedStack,
