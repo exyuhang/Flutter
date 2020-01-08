@@ -19,7 +19,24 @@ class GridViewItemState extends State<GridViewItem>{
         decoration: new BoxDecoration(
           image: new DecorationImage(image: new NetworkImage("https://dss0.baidu.com/73x1bjeh1BF3odCf/it/u=564841234,764664890&fm=85&s=B0B05F9502230D0914156C040300E052"), fit: BoxFit.cover)
         ),
-        child: null
+        child: new Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            new Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new Text("Mac BookPro 售价：", style: new TextStyle(color: Colors.black, fontSize: 13, fontWeight: FontWeight.bold),),
+                new Text("19968", style: new TextStyle(color: Colors.black, fontSize: 13, fontWeight: FontWeight.bold, decoration: TextDecoration.lineThrough),)
+              ],
+            ),
+            new Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new Text("现在购买九折", style: new TextStyle(color: Colors.red, fontSize: 15),)
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
