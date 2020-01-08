@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 
 class HomePage2 extends StatefulWidget {
@@ -132,11 +133,7 @@ class _HomePage2State extends State<HomePage2> {
 
               backgroundColor: Colors.white10,
 
-              backgroundImage: NetworkImage(
-
-                  subject['casts'][index]['avatars']['small']
-
-              )
+              backgroundImage: new NetworkImage(subject['casts'][index]['avatars'] == null?"" :subject['casts'][index]['avatars']['small']),
 
           ),
 
